@@ -1,0 +1,29 @@
+{
+  "tasks": [
+    {
+      "text": "fgnvng",
+      "day": "2021-11-29T06:06:39.864Z",
+      "reminder": false,
+      "id": 6
+    },
+    {
+      "text": "fhjfghj",
+      "day": "2021-11-29T06:06:52.689Z",
+      "reminder": false,
+      "id": 7
+    },
+    {
+      "text": "ghjfghjg",
+      "day": "2021-11-29T06:06:52.689Z",
+      "reminder": false,
+      "id": 8
+    },
+    {
+      "text": "fghjghjfgh",
+      "day": "2021-11-29T06:06:52.689Z",
+      "reminder": false,
+      "id": 9
+    }
+  ],
+  "searchTerms":["Oranges", "Apples", "Banana", "Kiwi", "Mango"]
+}

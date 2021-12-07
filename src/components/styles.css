@@ -27,11 +27,15 @@ body {
   }
   
   .suggestions {
+    position: absolute;
+    top: 52px;
+    align-self: auto;
     padding: 5px;
     box-shadow: 0 10px 40px -10px rgb(0 64 128 / 10%);
     border: 1px solid #ddd;
     background: #f9fafc;
     width: 720px;
+    /* height: 325px; */
     text-align: center;
     margin-top: 5px;
     margin-left: 50px;
@@ -40,6 +44,7 @@ body {
   
   .suggestions li {
     padding: 5px;
+    max-height: 325px;
     box-shadow: 0 10px 40px -10px rgb(0 64 128 / 10%);
     border: 1px solid #ddd;
     background: #f9fafc;

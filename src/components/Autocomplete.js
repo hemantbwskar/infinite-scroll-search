@@ -1,10 +1,14 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import './styles.css'
+// import {searchItems} from App
+// import App from "../App";
 
 
 
 class Autocomplete extends Component {
+
+
   static propTypes = {
     suggestions: PropTypes.instanceOf(Array)
   };
@@ -47,6 +51,10 @@ class Autocomplete extends Component {
   };
 
   onClick = e => {
+    // if (e.keyCode === 13) {
+    //   setQuery(e.target.value);
+    //   setData([]);
+    // }
     // searchImages(e)
     this.setState({
       activeSuggestion: 0,
@@ -58,9 +66,11 @@ class Autocomplete extends Component {
 
   onKeyDown = e => {
     const { activeSuggestion, filteredSuggestions } = this.state;
-
+    
     // User pressed the enter key
     if (e.keyCode === 13) {
+      // setQuery(e.target.value);
+      // setData([]);
       this.setState({
         activeSuggestion: 0,
         showSuggestions: false,
@@ -103,8 +113,9 @@ class Autocomplete extends Component {
     if (showSuggestions && userInput) {
       if (filteredSuggestions.length) {
         suggestionsListComponent = (
+          <table className="table">
           <ul class="suggestions">
-            {filteredSuggestions.map((suggestion, index) => {
+            {filteredSuggestions.slice(0,5).map((suggestion, index) => {
               let className;
 
               // Flag the active suggestion with a class
@@ -113,12 +124,15 @@ class Autocomplete extends Component {
               }
 
               return (
+                
                 <li className={className} key={suggestion} onClick={onClick}>
                   {suggestion}
                 </li>
+                
               );
             })}
           </ul>
+          </table>
         );
       } else {
         suggestionsListComponent = (

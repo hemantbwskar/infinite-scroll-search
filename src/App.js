@@ -40,23 +40,45 @@ const searchImages = (e) => {
     setData([]);
   }
 };
+
+
+const[suggestions,setSuggestions]=useState([])
+const fetchSuggestions=async()=>{
+  const res = await fetch('https://polar-badlands-57668.herokuapp.com/searchTerms')
+  const data = await res.json()
+  console.log(data)
+  return data
+}
+
+useEffect(()=>{
+  const getSuggestions=async()=>{
+    const suggestionsFromServer=await fetchSuggestions()
+    setSuggestions(suggestionsFromServer)
+  }
+
+   getSuggestions()
+ },[])
+// let suggestions=[];
+// const res=fetch('https://polar-badlands-57668.herokuapp.com/searchTerms')
+// suggestions=res.json;
+
 // const res = JSON.parse(searchItems)
 // const res = await fetch('https://polar-badlands-57668.herokuapp.com/tasks')
   return (
     <div className="App flex">
       
-    {/* <Autocomplete 
+    <Autocomplete 
       type="text"
-      onKeyDown={(e) => searchImages(e)}
       
-      suggestions={["Oranges", "Apples", "Banana", "Kiwi", "Mango"]}
       
-    /> */}
-    <input
+      suggestions={suggestions}
+      
+    />
+    {/* <input
     type="text"
     onKeyDown={(e) => searchImages(e)}
     placeholder="Search For Images"
-    />
+    /> */}
     <InfiniteScroll
       dataLength={data.length}
       next={fetchImages}

@@ -1,8 +1,7 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, useState } from "react";
 import PropTypes from "prop-types";
 import './styles.css'
-// import {searchItems} from App
-// import App from "../App";
+// import searchImages from "../App"
 
 
 
@@ -55,7 +54,7 @@ class Autocomplete extends Component {
     //   setQuery(e.target.value);
     //   setData([]);
     // }
-    // searchImages(e)
+    // this.props.searchImages(e)
     this.setState({
       activeSuggestion: 0,
       filteredSuggestions: [],
@@ -64,18 +63,22 @@ class Autocomplete extends Component {
     });
   };
 
-  onKeyDown = e => {
+  onKeyDown = (e) => {
     const { activeSuggestion, filteredSuggestions } = this.state;
-    
-    // User pressed the enter key
+var searchItems=''
     if (e.keyCode === 13) {
-      // setQuery(e.target.value);
-      // setData([]);
+      searchItems=(e.currentTarget.innerText)
+      
+      
       this.setState({
         activeSuggestion: 0,
         showSuggestions: false,
         userInput: filteredSuggestions[activeSuggestion]
       });
+
+      return{
+        searchItems
+      }
     }
     // User pressed the up arrow
     else if (e.keyCode === 38) {
@@ -94,6 +97,8 @@ class Autocomplete extends Component {
       this.setState({ activeSuggestion: activeSuggestion + 1 });
     }
   };
+
+  
 
   render() {
     const {
@@ -147,11 +152,13 @@ class Autocomplete extends Component {
     return (
       <Fragment>
         <input
+        id="userInput"
         placeholder="Search For Images"
           type="text"
           onChange={onChange}
           onKeyDown={onKeyDown}
           value={userInput}
+          // searchItems={userInput}
         />
         {suggestionsListComponent}
       </Fragment>

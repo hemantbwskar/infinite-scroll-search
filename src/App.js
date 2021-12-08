@@ -2,14 +2,16 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import './App.css';
+import InputBox from "./components/InputBox"
 import Autocomplete from "./components/Autocomplete";
-import searchItems from './db.json';
+// import searchItems from './db.json';
+// import userInput from './components/Autocomplete'
 
 
 function App() {
 
 const [data, setData] = useState([]);
-const [query, setQuery] = useState("code");
+const [query, setQuery] = useState("landscapes");
 const [page, setPage] = useState(1);
 const [hasMore, setHasMore] = useState(true);
 
@@ -35,12 +37,18 @@ useEffect(() => {
 }, [query]);
 
 const searchImages = (e) => {
-  if (e.keyCode === 13) {
-    setQuery(e.target.value);
+  // if (e.keyCode === 13) {
+    setQuery((e.target.value?e.target.value:"landscapes"));
     setData([]);
-  }
+  // }
 };
 
+
+
+// const onKeyDown1=(()=> {
+//   const inputvalue=document.getElementById('userInput').value
+//   searchImages(inputvalue)
+// })
 
 const[suggestions,setSuggestions]=useState([])
 const fetchSuggestions=async()=>{
@@ -67,18 +75,14 @@ useEffect(()=>{
   return (
     <div className="App flex">
       
-    <Autocomplete 
-      type="text"
-      
-      
-      suggestions={suggestions}
-      
-    />
-    {/* <input
+    {/* <As */}
+    {/* {(searchItems)=>searchImages(searchItems)} */}
+    <InputBox
     type="text"
-    onKeyDown={(e) => searchImages(e)}
-    placeholder="Search For Images"
-    /> */}
+    // onKeyDown={(e) => searchImages(e)}
+    // placeholder="Search For Images"
+    searchItems={searchImages}
+    />
     <InfiniteScroll
       dataLength={data.length}
       next={fetchImages}

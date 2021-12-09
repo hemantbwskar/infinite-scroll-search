@@ -1,13 +1,17 @@
 import React from "react";
 
-const InputBox=({searchfield,searchItems})=>{
+const InputBox=({searchItems})=>{
+
+    
     return(
         <div>
 		<input 
 		type='search' 
 		placeholder ="Search for Images" 
 		onChange = {searchItems}
+        // value={userInput}
 		/>
+        {/* {suggestionsListComponent} */}
 		</div>
     );
 }

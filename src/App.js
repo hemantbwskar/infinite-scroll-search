@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import './App.css';
 import InputBox from "./components/InputBox"
-import Autocomplete from "./components/Autocomplete";
-// import searchItems from './db.json';
-// import userInput from './components/Autocomplete'
+import ScrollButton from "./components/ScrollButton";
+// import GradientBG from "./components/GradientBG"
+// import Autocomplete from "./components/Autocomplete";
+// // import searchItems from './db.json';
+// // import userInput from './components/Autocomplete'
 
 
 function App() {
@@ -73,7 +75,10 @@ useEffect(()=>{
 // const res = JSON.parse(searchItems)
 // const res = await fetch('https://polar-badlands-57668.herokuapp.com/tasks')
   return (
+    
+    <div className="test">
     <div className="App flex">
+      
       
     {/* <As */}
     {/* {(searchItems)=>searchImages(searchItems)} */}
@@ -82,6 +87,7 @@ useEffect(()=>{
     // onKeyDown={(e) => searchImages(e)}
     // placeholder="Search For Images"
     searchItems={searchImages}
+    suggestions={suggestions}
     />
     <InfiniteScroll
       dataLength={data.length}
@@ -107,6 +113,8 @@ useEffect(()=>{
         ))}
       </div>
     </InfiniteScroll>
+    <ScrollButton />
+  </div>
   </div>
   );
 }

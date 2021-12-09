@@ -63,9 +63,14 @@ h4 {
 }
 
 .test {
+<<<<<<< HEAD
   width: auto;
   /* min-width: 1000px; */
   /* height: 100%; */
+=======
+/*   width: 100%; */
+/*   height: 100%; */
+>>>>>>> f786ed38492a6edcaf82f8893cb931b13db42d1b
   color: #fff;
   background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
   background-size: 400% 400%;

@@ -108,7 +108,7 @@ useEffect(()=>{
               className="image"
               alt={data.alt_description}
             />
-            {/* <h4>Photo by {data.user.name} 📸</h4> */}
+            <h4>{data.alt_description}</h4>
           </div>
         ))}
       </div>

@@ -59,7 +59,18 @@ h4 {
   font-size: 3rem;
   z-index: 1;
   cursor: pointer;
-  color: green;
+  color: rgb(0, 98, 128);
+}
+.open-button{
+  width: 100px;
+  border: 0;
+  border-radius: 10px;
+  float: right;
+  font-size: 1em;
+  z-index: 1;
+  cursor: pointer;
+  color: #23A6D5;
+  background-color: #00000028;
 }
 
 .test {
